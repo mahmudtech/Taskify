@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 
 export default function AddTask({ addTask }) {
-  const [task, setTask] = useState({
+  const initialState = {
     id: crypto.randomUUID(),
     title: "",
     description: "",
@@ -10,7 +10,8 @@ export default function AddTask({ addTask }) {
     priority: "",
     isCompleted: false,
     date: new Date(),
-  });
+  };
+  const [task, setTask] = useState(initialState);
 
   const onClickText = (e) => {
     const name = e.target.name;
@@ -128,6 +129,10 @@ export default function AddTask({ addTask }) {
               onClick={(e) => {
                 e.preventDefault();
                 addTask(task);
+                setTask({
+                  ...initialState,
+                  id: crypto.randomUUID(),
+                });
               }}
             >
               <i className="fas fa-plus mr-2"></i> Add Task
