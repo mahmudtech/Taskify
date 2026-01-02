@@ -34,6 +34,11 @@ export default function App() {
     t.title.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  const handleDeleteAll = () => {
+    tasks.length = 0;
+    setTasks([...tasks]);
+  };
+
   return (
     <div>
       <Header searchText={searchText} setSearchText={setSearchText} />
@@ -46,6 +51,7 @@ export default function App() {
             total={total}
             completedDone={completedDone}
             highPriorityCount={highPriorityCount}
+            deleteAll={handleDeleteAll}
           />
         </div>
       </main>

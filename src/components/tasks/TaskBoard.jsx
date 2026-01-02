@@ -8,10 +8,17 @@ export default function TaskBoard({
   total,
   completedDone,
   highPriorityCount,
+  deleteAll,
 }) {
   return (
     <>
-      <AddTask addTask={addTask} total={total} completedDone={completedDone} highPriorityCount={highPriorityCount} />
+      <AddTask
+        addTask={addTask}
+        total={total}
+        completedDone={completedDone}
+        highPriorityCount={highPriorityCount}
+        deleteAll={deleteAll}
+      />
       <TaskList
         tasks={tasks}
         onChecked={onChecked}
