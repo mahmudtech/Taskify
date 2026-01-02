@@ -1,6 +1,31 @@
+import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 
-export default function AddTask() {
+export default function AddTask({ addTask }) {
+  const [task, setTask] = useState({
+    id: crypto.randomUUID(),
+    title: "",
+    description: "",
+    tags: [],
+    priority: "",
+    isCompleted: false,
+    date: new Date(),
+  });
+
+  const onClickText = (e) => {
+    const name = e.target.name;
+    let value = e.target.value;
+
+    if (name === "tags") {
+      value = value.split(",");
+    }
+
+    setTask({
+      ...task,
+      [name]: value,
+    });
+  };
+
   return (
     <div className="lg:col-span-1">
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
@@ -21,6 +46,10 @@ export default function AddTask() {
               type="text"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               placeholder="Enter task title"
+              name="title"
+              id="title"
+              value={task.title}
+              onChange={onClickText}
               required
             />
           </div>
@@ -36,6 +65,10 @@ export default function AddTask() {
               rows="3"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               placeholder="Task details..."
+              name="description"
+              id="description"
+              value={task.description}
+              onChange={onClickText}
             ></textarea>
           </div>
 
@@ -61,6 +94,10 @@ export default function AddTask() {
               type="text"
               className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
               placeholder="Add tags (comma separated)"
+              name="tags"
+              id="tags"
+              value={task.tags}
+              onChange={onClickText}
             />
           </div>
 
@@ -71,11 +108,15 @@ export default function AddTask() {
             >
               Priority
             </label>
-            <select className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+            <select
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+              name="priority"
+              id="priority"
+              value={task.priority}
+              onChange={onClickText}
+            >
               <option value="low">Low Priority</option>
-              <option value="medium" selected>
-                Medium Priority
-              </option>
+              <option value="medium">Medium Priority</option>
               <option value="high">High Priority</option>
             </select>
           </div>
@@ -84,6 +125,10 @@ export default function AddTask() {
             <button
               type="submit"
               className="flex-1 bg-primary hover:bg-secondary text-white font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center"
+              onClick={(e) => {
+                e.preventDefault();
+                addTask(task);
+              }}
             >
               <i className="fas fa-plus mr-2"></i> Add Task
             </button>
