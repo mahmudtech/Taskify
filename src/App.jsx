@@ -9,7 +9,7 @@ export default function App() {
     title: "Implement user authentication",
     description: "Create login and registration pages with JWT token support",
     tags: ["Tech", "Security"],
-    priority: "high",
+    priority: "High Priority",
     isCompleted: false,
     date: new Date(),
   };
