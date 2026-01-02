@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaPlus, FaPlusCircle, FaTrash } from "react-icons/fa";
 import QuickStats from "./QuickStats";
 
 export default function AddTask({
@@ -37,7 +37,6 @@ export default function AddTask({
     <div className="lg:col-span-1">
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-24">
         <h2 className="text-xl font-bold text-gray-800 mb-6 flex items-center">
-          {/* <i className="fas fa-plus-circle text-accent mr-2"></i> Add New Task */}
           <FaPlusCircle className="text-accent mr-2" /> Add New Task
         </h2>
 
@@ -47,7 +46,7 @@ export default function AddTask({
               htmlFor="taskTitle"
               className="block text-sm font-medium text-gray-700 mb-1"
             >
-              Task Title *
+              Task Title <span className="text-red-400">*</span>
             </label>
             <input
               type="text"
@@ -122,7 +121,9 @@ export default function AddTask({
               value={task.priority}
               onChange={onClickText}
             >
-              <option value="" disabled>Select Priority</option>
+              <option value="" disabled>
+                Select Priority
+              </option>
               <option value="Low Priority">Low Priority</option>
               <option value="Medium Priority">Medium Priority</option>
               <option value="High Priority">High Priority</option>
@@ -142,13 +143,15 @@ export default function AddTask({
                 });
               }}
             >
-              <i className="fas fa-plus mr-2"></i> Add Task
+              {/* <i className="fas fa-plus mr-2"></i> Add Task */}
+              <FaPlus className="mr-2" /> Add Task
             </button>
             <button
               type="button"
               className="bg-red-100 hover:bg-red-200 text-red-700 font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center"
             >
-              <i className="fas fa-trash-alt mr-2"></i> Delete All
+              <FaTrash className="mr-2" />
+              Delete All
             </button>
           </div>
         </form>
