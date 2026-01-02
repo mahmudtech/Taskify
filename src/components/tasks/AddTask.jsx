@@ -2,7 +2,12 @@ import { useState } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import QuickStats from "./QuickStats";
 
-export default function AddTask({ addTask }) {
+export default function AddTask({
+  addTask,
+  total,
+  completedDone,
+  highPriorityCount,
+}) {
   const initialState = {
     id: crypto.randomUUID(),
     title: "",
@@ -117,6 +122,7 @@ export default function AddTask({ addTask }) {
               value={task.priority}
               onChange={onClickText}
             >
+              <option value="" disabled>Select Priority</option>
               <option value="Low Priority">Low Priority</option>
               <option value="Medium Priority">Medium Priority</option>
               <option value="High Priority">High Priority</option>
@@ -147,7 +153,11 @@ export default function AddTask({ addTask }) {
           </div>
         </form>
 
-        <QuickStats />
+        <QuickStats
+          total={total}
+          completedDone={completedDone}
+          highPriorityCount={highPriorityCount}
+        />
       </div>
     </div>
   );

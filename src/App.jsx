@@ -10,7 +10,7 @@ export default function App() {
     description: "Create login and registration pages with JWT token support",
     tags: ["Tech", "Security"],
     priority: "High Priority",
-    isCompleted: false,
+    isCompleted: true,
     date: new Date(),
   };
   const [tasks, setTasks] = useState([defaultTask]);
@@ -22,6 +22,12 @@ export default function App() {
   const handleAddTask = (newTask) => {
     setTasks([...tasks, newTask]);
   };
+
+  const total = tasks.length;
+  const completedDone = tasks.filter((task) => task.isCompleted).length;
+  const highPriorityCount = tasks.filter(
+    (task) => task.priority === "High Priority"
+  ).length;
   return (
     <div>
       <Header />
@@ -31,6 +37,9 @@ export default function App() {
             tasks={tasks}
             onChecked={handleOnChecked}
             addTask={handleAddTask}
+            total={total}
+            completedDone={completedDone}
+            highPriorityCount={highPriorityCount}
           />
         </div>
       </main>
