@@ -32,10 +32,10 @@ export default function Header({ searchText, setSearchText }) {
             </div>
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center text-white font-semibold">
-                JD
+                MI
               </div>
               <span className="hidden md:inline text-gray-700 font-medium">
-                John Doe
+                Mahmud Irfan
               </span>
             </div>
           </div>
