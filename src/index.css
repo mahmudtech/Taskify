@@ -1,1 +1,75 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+body {
+  @apply font-sans;
+}
+
+/* Your custom colors now live in @theme */
+@theme {
+  --color-primary: #3b82f6;
+  --color-secondary: #1e40af;
+  --color-accent: #10b981;
+  --color-dark: #1f2937;
+  --color-light: #f9fafb;
+}
+
+/* Your custom classes stay the same */
+.priority-high {
+  background-color: #fee2e2;
+  border-left: 4px solid #dc2626;
+}
+
+.priority-medium {
+  background-color: #fef3c7;
+  border-left: 4px solid #d97706;
+}
+
+.priority-low {
+  background-color: #d1fae5;
+  border-left: 4px solid #059669;
+}
+
+.tag-tech {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.tag-design {
+  background-color: #fce7f3;
+  color: #9d174d;
+}
+.tag-meeting {
+  background-color: #f0f9ff;
+  color: #0c4a6e;
+}
+.tag-documentation {
+  background-color: #f0fdf4;
+  color: #166534;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
