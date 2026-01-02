@@ -39,6 +39,10 @@ export default function App() {
     setTasks([...tasks]);
   };
 
+  const handleDeleteTask = (deleteId) => {
+    const affterDelete = tasks.filter((t) => t.id !== deleteId);
+    setTasks(affterDelete);
+  };
   return (
     <div>
       <Header searchText={searchText} setSearchText={setSearchText} />
@@ -52,6 +56,7 @@ export default function App() {
             completedDone={completedDone}
             highPriorityCount={highPriorityCount}
             deleteAll={handleDeleteAll}
+            onDelete={handleDeleteTask}
           />
         </div>
       </main>

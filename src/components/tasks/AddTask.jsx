@@ -150,7 +150,7 @@ export default function AddTask({
             <button
               type="button"
               className="bg-red-100 hover:bg-red-200 text-red-700 font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center"
-              onClick={() => deleteAll()}
+              onClick={deleteAll}
             >
               <FaTrash className="mr-2" />
               Delete All
