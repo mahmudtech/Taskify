@@ -10,14 +10,17 @@ export default function App() {
     description: "Create login and registration pages with JWT token support",
     tags: ["Tech", "Security"],
     priority: "High Priority",
-    isCompleted: true,
+    isCompleted: false,
     date: new Date(),
   };
   const [tasks, setTasks] = useState([defaultTask]);
   const [searchText, setSearchText] = useState("");
 
-  const handleOnChecked = (id) => {
-    console.log(id);
+  const handleOnChecked = (onCompleteId) => {
+    const findIndex = tasks.findIndex((t) => t.id === onCompleteId);
+    const newTask = [...tasks];
+    newTask[findIndex].isCompleted = !newTask[findIndex].isCompleted;
+    setTasks(newTask);
   };
 
   const handleAddTask = (newTask) => {
