@@ -4,7 +4,7 @@ import TaskFilter from "./TaskFilter";
 
 export default function TaskList() {
   return (
-    <div class="lg:col-span-2">
+    <div className="lg:col-span-2">
       <TaskActions />
       <TaskFilter />
 
