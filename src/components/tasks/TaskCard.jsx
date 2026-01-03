@@ -1,7 +1,7 @@
 import { FaEdit } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
 
-export default function TaskCard({ task, onChecked, onDelete }) {
+export default function TaskCard({ task, onChecked, onDelete, onEdit }) {
   return (
     <>
       <div className="lg:col-span-2">
@@ -68,7 +68,10 @@ export default function TaskCard({ task, onChecked, onDelete }) {
                     </h3>
                   </div>
                   <div className="flex space-x-2">
-                    <button className="text-gray-500 hover:text-primary p-1.5 rounded-lg">
+                    <button
+                      className="text-gray-500 hover:text-primary p-1.5 rounded-lg"
+                      onClick={() => onEdit(task)}
+                    >
                       <FaEdit />
                     </button>
                     <button

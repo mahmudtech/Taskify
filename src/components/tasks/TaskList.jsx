@@ -9,6 +9,7 @@ export default function TaskList({
   total,
   completedDone,
   onDelete,
+  onEdit,
 }) {
   return (
     <div className="lg:col-span-2">
@@ -23,6 +24,7 @@ export default function TaskList({
               task={task}
               onChecked={onChecked}
               onDelete={onDelete}
+              onEdit={onEdit}
             />
           ))}
         </>

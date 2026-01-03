@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
+import Modal from "./components/tasks/Modal";
 import TaskBoard from "./components/tasks/TaskBoard";
 
 export default function App() {
@@ -15,6 +16,8 @@ export default function App() {
   };
   const [tasks, setTasks] = useState([defaultTask]);
   const [searchText, setSearchText] = useState("");
+  const [taskToUpdate, setTaskToUpdate] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleOnChecked = (onCompleteId) => {
     const findIndex = tasks.findIndex((t) => t.id === onCompleteId);
@@ -46,10 +49,42 @@ export default function App() {
     const affterDelete = tasks.filter((t) => t.id !== deleteId);
     setTasks(affterDelete);
   };
+
+  const handleEditTask = (editTask) => {
+    setShowModal(true);
+    setTaskToUpdate(editTask);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+    setTaskToUpdate(null);
+  };
+
+  const handleOnSave = (updateTask) => {
+    const editTasks = tasks.map((t) => {
+      if (t.id === updateTask.id) {
+        return updateTask;
+      } else {
+        return t;
+      }
+    });
+
+    setTasks(editTasks);
+    setShowModal(false);
+    setTaskToUpdate(null);
+  };
   return (
     <div>
       <Header searchText={searchText} setSearchText={setSearchText} />
+
       <main className="container mx-auto px-4 py-8">
+        {showModal && (
+          <Modal
+            onCloseModal={handleCloseModal}
+            taskToUpdate={taskToUpdate}
+            onSave={handleOnSave}
+          />
+        )}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <TaskBoard
             tasks={searchItem}
@@ -60,6 +95,7 @@ export default function App() {
             highPriorityCount={highPriorityCount}
             deleteAll={handleDeleteAll}
             onDelete={handleDeleteTask}
+            onEdit={handleEditTask}
           />
         </div>
       </main>

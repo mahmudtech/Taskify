@@ -10,6 +10,7 @@ export default function TaskBoard({
   highPriorityCount,
   deleteAll,
   onDelete,
+  onEdit,
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function TaskBoard({
         total={total}
         completedDone={completedDone}
         onDelete={onDelete}
+        onEdit={onEdit}
       />
     </>
   );
