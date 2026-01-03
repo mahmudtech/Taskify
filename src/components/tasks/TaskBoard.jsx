@@ -11,6 +11,8 @@ export default function TaskBoard({
   deleteAll,
   onDelete,
   onEdit,
+  selectedFilter,
+  setSelectedFilter,
 }) {
   return (
     <>
@@ -28,6 +30,8 @@ export default function TaskBoard({
         completedDone={completedDone}
         onDelete={onDelete}
         onEdit={onEdit}
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
       />
     </>
   );

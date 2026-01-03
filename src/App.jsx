@@ -18,6 +18,18 @@ export default function App() {
   const [searchText, setSearchText] = useState("");
   const [taskToUpdate, setTaskToUpdate] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("All");
+
+  const displayTasks = tasks.filter((task) => {
+    const matchesSearch = task.title
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
+    const matchesFilter =
+      selectedFilter === "All" ||
+      task.priority === selectedFilter ||
+      task.tags.includes(selectedFilter);
+    return matchesSearch && matchesFilter;
+  });
 
   const handleOnChecked = (onCompleteId) => {
     const findIndex = tasks.findIndex((t) => t.id === onCompleteId);
@@ -87,7 +99,7 @@ export default function App() {
         )}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <TaskBoard
-            tasks={searchItem}
+            tasks={displayTasks}
             onChecked={handleOnChecked}
             addTask={handleAddTask}
             total={total}
@@ -96,6 +108,8 @@ export default function App() {
             deleteAll={handleDeleteAll}
             onDelete={handleDeleteTask}
             onEdit={handleEditTask}
+            selectedFilter={selectedFilter}
+            setSelectedFilter={setSelectedFilter}
           />
         </div>
       </main>

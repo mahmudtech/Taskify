@@ -10,11 +10,16 @@ export default function TaskList({
   completedDone,
   onDelete,
   onEdit,
+  selectedFilter,
+  setSelectedFilter,
 }) {
   return (
     <div className="lg:col-span-2">
       <TaskActions total={total} completedDone={completedDone} />
-      <TaskFilter />
+      <TaskFilter
+        selectedFilter={selectedFilter}
+        setSelectedFilter={setSelectedFilter}
+      />
       {tasks.length > 0 ? (
         <>
           {" "}
