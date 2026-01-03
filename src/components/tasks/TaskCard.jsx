@@ -1,5 +1,6 @@
 import { FaEdit } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
+import { formatDate } from "../../utils/FormData";
 
 export default function TaskCard({ task, onChecked, onDelete, onEdit }) {
   return (
@@ -48,7 +49,9 @@ export default function TaskCard({ task, onChecked, onDelete, onEdit }) {
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs text-gray-500">Oct 15</div>
+                  <div className="text-xs text-gray-500">
+                    {formatDate(task.date)}
+                  </div>
                 </div>
               </div>
             </>
@@ -97,7 +100,9 @@ export default function TaskCard({ task, onChecked, onDelete, onEdit }) {
                       </div>
                     ))}
                   </div>
-                  <div className="text-xs text-gray-500">Oct 15</div>
+                  <div className="text-xs text-gray-500">
+                    {formatDate(task.date)}
+                  </div>
                 </div>
               </div>
             </>
