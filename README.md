@@ -1,16 +1,91 @@
-# React + Vite
+# Taskify — Professional Task Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Taskify is an easy-to-use task management system where users can create tasks, filter them, set priorities, and manage their task lists efficiently.
+It’s lightweight but powerful — designed to boost productivity.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## React Compiler
+👉 **Live URL:** [https://taskify-system-pro.vercel.app](https://taskify-system-pro.vercel.app)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Screenshot
+
+![Taskify Dashboard](./src/assets/Taskify.png)
+
+
+---
+
+## ✨ Features
+
+* ✔ **Header** — Project name, search bar, and user profile
+* ✔ **Add Task** — Title, description, tags, and priority input
+* ✔ **Task Filter** — Filter by priority, status, or tags
+* ✔ **Task Card** — Clean UI layout for each task
+* ✔ **Task List** — Organized view of all tasks
+* ✔ **Dashboard Layout (TaskBoard)** — Full board-style layout
+* ✔ **Footer** — Copyright and project info
+
+---
+
+## 🧩 Components Overview
+
+| Component    | Purpose                  |
+| ------------ | ------------------------ |
+| `Header`     | Branding + Search + User |
+| `AddTask`    | Create and delete tasks  |
+| `TaskFilter` | Filter tasks easily      |
+| `TaskCard`   | UI block for each task   |
+| `TaskList`   | Displays all tasks       |
+| `TaskBoard`  | Main dashboard layout    |
+| `Footer`     | Copyright section        |
+
+---
+
+## 🚀 Tech Stack
+
+* React & Vite
+* Tailwind CSS
+* JavaScript (ES6+)
+
+---
+
+## 📦 Installation
+
+```bash
+git clone <repository-url>
+cd taskify
+npm install
+npm run dev
+```
+
+---
+
+## 📝 Usage
+
+1️⃣ Create a new task using **Add Task**
+2️⃣ View tasks in the list
+3️⃣ Use **Filters** to quickly find tasks
+4️⃣ Edit or delete tasks when necessary
+5️⃣ Use priority levels to plan better
+
+---
+
+
+---
+
+## 🔮 Future Improvements
+
+* Drag & drop task sorting
+* User authentication
+* Dark mode
+* Backend synchronization
+
+---
+
+## © License
+
+© 2026 — Taskify. Built for productivity.
